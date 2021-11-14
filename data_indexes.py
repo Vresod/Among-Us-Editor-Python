@@ -408,7 +408,7 @@ skins = (  # by EnbyCosmog. special thanks to SharedLines for providing the init
 	"skin_vi",
 )
 
-visors = (  # by Sharedlines
+visors = (  # by EnbyCosmog. special thanks to Sharedlines for providing the initial version of this list
 	"visor_EmptyVisor",
 	"visor_pk01_FredVisor",
 	"hat_geoff",
