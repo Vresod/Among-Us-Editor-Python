@@ -29,7 +29,7 @@ class AUConfig():
 		"""
 		config = ""
 		for i,value in enumerate(self.config):
-			config += self.config[value]
+			config += str(self.config[value])
 			if i < len(self.config):
 				config += ","
 		if config_file is None:
