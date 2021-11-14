@@ -148,4 +148,27 @@ visors = (
 	"visor_pk01_DumStickerVisor"
 )
 
+pets = (
+	'pet_EmptyPet',
+	'pet_Alien',
+	'pet_Crewmate',
+	'pet_Doggy',
+	'pet_Stickmin',
+	'pet_Hamster',
+	'pet_Robot',
+	'pet_UFO',
+	'pet_Ellie',
+	'pet_Squig',
+	'pet_Bedcrab',
+	'pet_test',
+	'pet_Lava',
+	'pet_Snow',
+	'pet_Charles',
+	'pet_Charles_Red',
+	'pet_Cube',
+	'pet_Bush',
+	'pet_frankendog',
+	'pet_poro'
+)
+
 color_indexes = ("red", "blue", "green", "pink", "orange", "yellow", "black", "white", "purple", "brown", "cyan", "lime", "maroon", "rose", "banana", "gray", "tan", "coral")
