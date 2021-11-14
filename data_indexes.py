@@ -480,7 +480,7 @@ visors = (  # by EnbyCosmog. special thanks to Sharedlines for providing the ini
 	"visor_jinx",
 )
 
-pets_indexes = (  # by Sharedlines
+pets_indexes = (  # by EnbyCosmog. special thanks to Sharedlines for the initial version of this list
 	"pet_EmptyPet",
 	"pet_Alien",
 	"pet_Crewmate",
