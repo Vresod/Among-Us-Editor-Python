@@ -35,8 +35,8 @@ def update_window(window:sg.Window,config:AUConfig):
 	window['skin'].update(value=config['lastSkin'])
 	window['visor_display'].update(value=f"Visor: {config['lastVisor']}") 
 	window['visor'].update(value=config['lastVisor'])
-	window['pet_display'].update(value=f"Pet: {pets_indexes[int(config['lastPet'])]}")
-	window['pet'].update(value=pets_indexes[int(config['lastPet'])])
+	window['pet_display'].update(value=f"Pet: {config['lastPet']}")
+	window['pet'].update(value=config['lastPet'])
 	window.finalize()
 
 # Event Loop to process "events" and get the "values" of the inputs
@@ -56,7 +56,7 @@ while True:
 		config['lastHat'] = values['hat']
 		config['lastSkin'] = values['skin']
 		config['lastVisor'] = values['visor']
-		config['lastPet'] = pets_indexes.index(values['pet'])
+		config['lastPet'] = values['pet']
 		config.save()
 		update_window(window,config)
 		sg.popup("Config saved!")
