@@ -3,6 +3,8 @@ from extra import AUConfig
 from os import environ
 from data_indexes import hats, skins, visors, pets_indexes, color_indexes
 
+__version__ = "1.0"
+
 sg.theme('GrayGrayGray')   # Add a touch of color
 
 menu_def = [["Help",["About"]]]
@@ -22,7 +24,7 @@ layout = [
 
 
 # Create the Window
-window = sg.Window('Among Us Editor (v0.1 prerelease) - Remake - By Vresod',layout)
+window = sg.Window(f'Among Us Editor (v{__version__}) - Remake - By Vresod',layout)
 
 def update_window(window:sg.Window,config:AUConfig):
 	window['username_display'].update(value=f"Username: {config['lastPlayerName']}") 
@@ -63,7 +65,7 @@ while True:
 	elif event == 'About':
 		help_popup = sg.Window('About AUE',[
 			[sg.T("Among Us Editor")],
-			[sg.T("v0.1 prerelease")],
+			[sg.T(f"v{__version__}")],
 			[sg.T("By Vresod (Vresod#3907) on Discord")],
 			[sg.Button("Close")]
 		]).read(close=True)
