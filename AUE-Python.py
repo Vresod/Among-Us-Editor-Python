@@ -2,6 +2,20 @@ import PySimpleGUI as sg
 from extra import AUConfig
 from os import environ
 from data_indexes import hats, skins, visors, nameplates, pets_indexes, color_indexes
+import sys
+import ctypes
+from os import path
+
+def resource_path(relative_path): # stolen from https://stackoverflow.com/a/13790741
+	""" Get absolute path to resource, works for dev and for PyInstaller """
+	try:
+		# PyInstaller creates a temp folder and stores path in _MEIPASS
+		base_path = sys._MEIPASS
+	except Exception:
+		base_path = path.abspath(".")
+
+	return path.join(base_path, relative_path)
+
 
 __version__ = "1.0"
 
@@ -24,12 +38,11 @@ layout = [
 ]
 
 # Process is given app user model id of 'a.b.c.d', differentiating itself from the Python processs
-import sys, ctypes
 if sys.platform.startswith('win') and sys.argv[0].endswith('.exe') == False:
-		ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(u'a.b.c.d') # string is arbitrary
+	ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(f'AUEPython.AUEPython.AUEPython.{__version__}') # string is arbitrary
 
 # Create the Window
-window = sg.Window(f'Among Us Editor (v{__version__}) - Remake - By Vresod',layout,icon="./images/logo.ico")
+window = sg.Window(f'Among Us Editor (v{__version__}) - Remake - By Vresod',layout,icon=resource_path("images/logo.ico"))
 
 def update_window(window:sg.Window,config:AUConfig):
 	window['username_display'].update(value=f"Username: {config['lastPlayerName']}") 
