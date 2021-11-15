@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 from extra import AUConfig
 from os import environ
-from data_indexes import hats, skins, visors, pets_indexes, color_indexes
+from data_indexes import hats, skins, visors, nameplates, pets_indexes, color_indexes
 
 __version__ = "1.0"
 
@@ -18,10 +18,15 @@ layout = [
 	[sg.Text('Skin:',key="skin_display"),sg.Combo(values=skins,key="skin")],
 	[sg.Text('Visor:',key="visor_display"),sg.Combo(values=visors,key="visor")],
 	[sg.Text('Pet:',key="pet_display"),sg.Combo(values=pets_indexes,key="pet")],
+ 	[sg.Text('Nameplate:',key="nameplate_display"),sg.Combo(values=nameplates,key="nameplate")],
 	[sg.HorizontalSeparator()],
 	[sg.Input(key='file',visible=False,enable_events=True),sg.FileBrowse(button_text="Open",initial_folder=fr"{environ['AppData']}\..\LocalLow\Innersloth\Among Us"),sg.Submit('Save',key="save")]
 ]
 
+# Process is given app user model id of 'a.b.c.d', differentiating itself from the Python processs
+import sys, ctypes
+if sys.platform.startswith('win') and sys.argv[0].endswith('.exe') == False:
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(u'a.b.c.d') # string is arbitrary
 
 # Create the Window
 window = sg.Window(f'Among Us Editor (v{__version__}) - Remake - By Vresod',layout,icon="./images/logo.ico")
@@ -39,6 +44,8 @@ def update_window(window:sg.Window,config:AUConfig):
 	window['visor'].update(value=config['lastVisor'])
 	window['pet_display'].update(value=f"Pet: {config['lastPet']}")
 	window['pet'].update(value=config['lastPet'])
+	window['nameplate_display'].update(value=f"Nameplate: {config['lastNameplate']}")
+	window['nameplate'].update(value=config['lastNameplate'])
 	window.finalize()
 
 # Event Loop to process "events" and get the "values" of the inputs
@@ -59,6 +66,7 @@ while True:
 		config['lastSkin'] = values['skin']
 		config['lastVisor'] = values['visor']
 		config['lastPet'] = values['pet']
+		config['lastNameplate'] = values['nameplate']
 		config.save()
 		update_window(window,config)
 		sg.popup("Config saved!")
