@@ -334,6 +334,7 @@ hats = (  # by EnbyCosmog. special thanks to SharedLines for providing the initi
 )
 
 skins_dict = { # by EnbyCosmog. special thanks to SharedLines for providing the initial version of this list
+	'': 'None',
 	'skin_None': 'None', 
 	'skin_Capt': "Pilot's License", 
 	'skin_Police': 'Policeman Officer', 
@@ -481,6 +482,7 @@ visors = (  # by EnbyCosmog. special thanks to Sharedlines for providing the ini
 )
 
 nameplates_dict = { # by Enby Cosmog
+	'': 'None',
 	'nameplate_NoPlate': 'None', 
 	'nameplate_airship_Toppat': 'Airship Toppat', 
 	'nameplate_airship_CCC': 'C4 Plate', 
@@ -520,6 +522,7 @@ nameplates_dict = { # by Enby Cosmog
 }
 
 pets_dict = { # by Enby Cosmog. special thanks to Sharedlines for the initial version of this list
+	'': 'None',
 	'pet_EmptyPet': 'None', 
 	'pet_Alien': 'Headslug', 
 	'pet_Crewmate': 'Mini Crewmate', 
@@ -541,6 +544,7 @@ pets_dict = { # by Enby Cosmog. special thanks to Sharedlines for the initial ve
 	'pet_frankendog': 'Frankendog', 
 	'pet_poro': "Heimerdinger's Poro"
 }
+
 color_indexes = (  # by SharedLines
 	"Red",
 	"Blue",
