@@ -541,7 +541,6 @@ pets_dict = { # by Enby Cosmog. special thanks to Sharedlines for the initial ve
 	'pet_frankendog': 'Frankendog', 
 	'pet_poro': "Heimerdinger's Poro"
 }
-
 color_indexes = (  # by SharedLines
 	"Red",
 	"Blue",

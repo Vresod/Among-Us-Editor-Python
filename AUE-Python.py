@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 from extra import AUConfig
+from __version__ import __version__
 from os import environ
 from data_indexes import hats, skins_dict, visors, nameplates_dict, pets_dict, color_indexes
 import sys
@@ -22,9 +23,6 @@ def resource_path(relative_path): # stolen from https://stackoverflow.com/a/1379
 		base_path = path.abspath(".")
 
 	return path.join(base_path, relative_path)
-
-
-__version__ = "1.0"
 
 sg.theme('GrayGrayGray')   # Add a touch of color
 
