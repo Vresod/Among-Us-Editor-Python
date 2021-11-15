@@ -5,7 +5,7 @@
 
 ## How do I use it?
 
-Navigate to the directory and use `python AUE-Python.py` or run the   build.bat  file to build an executable.
+Navigate to the directory and use `python AUE-Python.py` or run the `build.bat` file to build an executable.
 
 ## Licensing
 
