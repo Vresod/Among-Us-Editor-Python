@@ -10,3 +10,7 @@ Simply open `AUE-Python.py` and
 ## Licensing
 
 Some components of this project may seem appealing to use in your own. Go ahead! You're not legally entitled to support though. Also some of the contributors (specificaly for `data_indexes.py`) would probably appreciate credit, but ¯\\\_(ツ)\_\/¯.
+
+### Logo
+
+The logo is licensed under the CC0 license. Feel free to use it wherever.

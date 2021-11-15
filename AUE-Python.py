@@ -24,7 +24,7 @@ layout = [
 
 
 # Create the Window
-window = sg.Window(f'Among Us Editor (v{__version__}) - Remake - By Vresod',layout)
+window = sg.Window(f'Among Us Editor (v{__version__}) - Remake - By Vresod',layout,icon="./images/logo.ico")
 
 def update_window(window:sg.Window,config:AUConfig):
 	window['username_display'].update(value=f"Username: {config['lastPlayerName']}") 
