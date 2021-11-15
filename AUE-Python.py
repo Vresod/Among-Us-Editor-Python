@@ -26,7 +26,7 @@ layout = [
 # Process is given app user model id of 'a.b.c.d', differentiating itself from the Python processs
 import sys, ctypes
 if sys.platform.startswith('win') and sys.argv[0].endswith('.exe') == False:
-        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(u'a.b.c.d') # string is arbitrary
+		ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(u'a.b.c.d') # string is arbitrary
 
 # Create the Window
 window = sg.Window(f'Among Us Editor (v{__version__}) - Remake - By Vresod',layout,icon="./images/logo.ico")
