@@ -80,7 +80,7 @@ while True:
 		config = AUConfig(values['file'])
 		update_window(window,config)
 	elif event == "save":
-		config['lastPlayerName'] = values['username']
+		config['lastPlayerName'] = values['username'][:10] # Max username character length
 		config['colorConfig'] = color_indexes.index(values['color'])
 		config['lastHat'] = values['hat']
 		config['lastSkin'] = skins_dict2[values['skin']]
