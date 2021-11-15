@@ -1,7 +1,8 @@
 import PySimpleGUI as sg
 from extra import AUConfig
+from __version__ import __version__
 from os import environ
-from data_indexes import hats, skins, visors, nameplates, pets_indexes, color_indexes
+from data_indexes import hats, skins, visors, nameplates, pets, color_indexes
 import sys
 import ctypes
 from os import path
@@ -16,9 +17,6 @@ def resource_path(relative_path): # stolen from https://stackoverflow.com/a/1379
 
 	return path.join(base_path, relative_path)
 
-
-__version__ = "1.0"
-
 sg.theme('GrayGrayGray')   # Add a touch of color
 
 menu_def = [["Help",["About"]]]
@@ -31,7 +29,7 @@ layout = [
 	[sg.Text('Hat:',key="hat_display"),sg.Combo(values=hats,key="hat")],
 	[sg.Text('Skin:',key="skin_display"),sg.Combo(values=skins,key="skin")],
 	[sg.Text('Visor:',key="visor_display"),sg.Combo(values=visors,key="visor")],
-	[sg.Text('Pet:',key="pet_display"),sg.Combo(values=pets_indexes,key="pet")],
+	[sg.Text('Pet:',key="pet_display"),sg.Combo(values=pets,key="pet")],
  	[sg.Text('Nameplate:',key="nameplate_display"),sg.Combo(values=nameplates,key="nameplate")],
 	[sg.HorizontalSeparator()],
 	[sg.Input(key='file',visible=False,enable_events=True),sg.FileBrowse(button_text="Open",initial_folder=fr"{environ['AppData']}\..\LocalLow\Innersloth\Among Us"),sg.Submit('Save',key="save")]

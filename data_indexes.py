@@ -519,7 +519,7 @@ nameplates = (  # by EnbyCosmog :]
 	"nameplate_hw_pumpkin",
 )
 
-pets_indexes = (  # by EnbyCosmog. special thanks to Sharedlines for the initial version of this list
+pets = (  # by EnbyCosmog. special thanks to Sharedlines for the initial version of this list
 	"pet_EmptyPet",
 	"pet_Alien",
 	"pet_Crewmate",
