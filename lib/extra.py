@@ -1,6 +1,7 @@
 from os import PathLike
 from typing import OrderedDict
 from data_indexes import prefs_indexes
+from dataclasses import dataclass
 
 class AUConfig():
 	def __init__(self,config_file:PathLike = None,autoinit = True):
@@ -36,6 +37,12 @@ class AUConfig():
 			config_file = self.config_file
 		with open(config_file,"w") as config_filefile: # horrible variable name, don't worry about it
 			config_filefile.write(config)
+
+@dataclass
+class host_index:
+	name: str
+	type: str
+	length: int
 
 if __name__ == "__main__":
 	c = AUConfig(r"C:\Users\lukeb\AppData\LocalLow\Innersloth\Among Us\playerPrefs")

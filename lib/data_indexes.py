@@ -1,3 +1,6 @@
+from .dataclasses import host_index as _host_index
+
+
 prefs_indexes = (  # by Koupah and Vresod,
 	"lastPlayerName",
 	"touchConfig",
@@ -42,6 +45,31 @@ prefs_indexes = (  # by Koupah and Vresod,
 	"enableMouseMovement",
 	"askRedeemDLC",
 	"warnedAboutGuestModeProgression",
+)
+
+host_indexes = (
+	_host_index('version','byte',1),
+	_host_index('MaxPlayers','byte',1),
+	_host_index('Keywords','uint32',4),
+	_host_index('MapId','byte',1),
+	_host_index('PlayerSpeedMod','single',4),
+	_host_index('CrewLightMod','single',4),
+	_host_index('ImposterLightMod','single',4),
+	_host_index('KillCooldown','single',4),
+	_host_index('NumCommonTasks','byte',1),
+	_host_index('NumLongTasks','byte',1),
+	_host_index('NumShortTasks','byte',1),
+	_host_index('NumEmergencyMeetings','int32',4),
+	_host_index('NumImposters','byte',1),
+	_host_index('KillDistance','byte',1),
+	_host_index('DiscussionTIme','int32',4),
+	_host_index('VotingTime','int32',4),
+	_host_index('isDefaults','boolean',1),
+	_host_index('EmergencyCooldown','byte',1),
+	_host_index('ConfirmImposter','boolean',1),
+	_host_index('VisualTasks','boolean',1),
+	_host_index('AnonymousVotes','boolean',1),
+	_host_index('TaskBarMode','byte',1),
 )
 
 hats_dict = { # by EnbyCosmog (this took so long ;-;). special thanks to SharedLines for providing the initial version of this list

@@ -1,8 +1,8 @@
 import PySimpleGUI as sg
-from extra import AUConfig
+from lib.AUConfig import AUConfig
 from __version__ import __version__
 from os import environ
-from data_indexes import hats_dict, skins_dict, visors_dict, pets_dict, nameplates_dict, color_indexes
+from lib.data_indexes import hats_dict, skins_dict, visors_dict, pets_dict, nameplates_dict, color_indexes
 import sys
 import ctypes
 from os import path
