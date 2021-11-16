@@ -13,6 +13,8 @@ Initial ID dump by Sharedlines
 
 PySimpleGUI by Mike / the PySimpleGUI team
 
+The original Among Us Editor by Koupah
+
 Thanks to the people of the [Reactor](https://reactor.gg) discord server for helping me decompile the game to get indexes. Seriously appreciated, this project would be majorly unfinished without you.
 <hr>
 Really, massive thanks to EnbyCosmog for not only dumping <i>*all*</i> of the IDs but manually transcribing all of the in-game names as well. Seriously; how could you possibly be cooler than that?
