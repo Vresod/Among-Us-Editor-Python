@@ -2,13 +2,14 @@ import PySimpleGUI as sg
 from extra import AUConfig
 from __version__ import __version__
 from os import environ
-from data_indexes import hats, skins_dict, visors_dict, pets_dict, nameplates_dict, color_indexes
+from data_indexes import hats_dict, skins_dict, visors_dict, pets_dict, nameplates_dict, color_indexes
 import sys
 import ctypes
 from os import path
 
 
 # Allows for IDs and in-game names of itmes to be swapped and vise versa
+hats_dict2 = {y:x for x,y in hats_dict.items()}
 skins_dict2 = {y:x for x,y in skins_dict.items()}
 visors_dict2 = {y:x for x,y in visors_dict.items()}
 pets_dict2 = {y:x for x,y in pets_dict.items()}
@@ -34,7 +35,7 @@ layout = [
 	[sg.Menu(menu_def)],
 	[sg.Text('Username:',key="username_display"),sg.Input(key="username")],
 	[sg.Text('Color',key="color_display"),sg.Combo(values=color_indexes,key="color")],
-	[sg.Text('Hat:',key="hat_display"),sg.Combo(values=hats,key="hat")],
+	[sg.Text('Hat:',key="hat_display"),sg.Combo(values=tuple(hats_dict.values()),key="hat")],
 	[sg.Text('Skin:',key="skin_display"),sg.Combo(values=tuple(skins_dict.values()),key="skin")],
 	[sg.Text('Visor:',key="visor_display"),sg.Combo(values=tuple(visors_dict.values()),key="visor")],
 	[sg.Text('Pet:',key="pet_display"),sg.Combo(values=tuple(pets_dict.values()),key="pet")],
@@ -55,8 +56,8 @@ def update_window(window:sg.Window,config:AUConfig):
 	window['username'].update(value=config['lastPlayerName'])
 	window['color_display'].update(value=f"Color: {color_indexes[int(config['colorConfig'])]}") 
 	window['color'].update(value=color_indexes[int(config['colorConfig'])])
-	window['hat_display'].update(value=f"Hat: {config['lastHat']}") 
-	window['hat'].update(value=config['lastHat'])
+	window['hat_display'].update(value=f"Hat: {hats_dict[config['lastHat']]}") 
+	window['hat'].update(value=hats_dict[config['lastHat']])
 	window['skin_display'].update(value=f"Skin: {skins_dict[config['lastSkin']]}") 
 	window['skin'].update(value=skins_dict[config['lastSkin']])
 	window['visor_display'].update(value=f"Visor: {visors_dict[config['lastVisor']]}") 
@@ -81,7 +82,7 @@ while True:
 	elif event == "save":
 		config['lastPlayerName'] = values['username'][:10] # Max username character length
 		config['colorConfig'] = color_indexes.index(values['color'])
-		config['lastHat'] = values['hat']
+		config['lastHat'] = hats_dict2[values['hat']]
 		config['lastSkin'] = skins_dict2[values['skin']]
 		config['lastVisor'] = visors_dict2[values['visor']]
 		config['lastPet'] = pets_dict2[values['pet']]
