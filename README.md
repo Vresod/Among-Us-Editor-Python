@@ -23,6 +23,8 @@ Really, massive thanks to EnbyCosmog for not only dumping <i>*all*</i> of the ID
 
 Navigate to the directory and use `python AUE-Python.py` or run the `build.bat` file to build an executable.
 
+For more assistance, join discord.gg/GU4bnWGPwx. We can help!
+
 ## Licensing
 
 Some components of this project may seem appealing to use in your own. Go ahead! You're not legally entitled to support though. Also some of the contributors (specificaly for `data_indexes.py`) would probably appreciate credit, but ¯\\\_(ツ)\_\/¯.
