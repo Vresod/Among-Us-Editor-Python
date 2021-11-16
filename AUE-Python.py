@@ -2,16 +2,17 @@ import PySimpleGUI as sg
 from extra import AUConfig
 from __version__ import __version__
 from os import environ
-from data_indexes import hats, skins_dict, visors, nameplates_dict, pets_dict, color_indexes
+from data_indexes import hats, skins_dict, visors_dict, pets_dict, nameplates_dict, color_indexes
 import sys
 import ctypes
 from os import path
 
 
 # Allows for IDs and in-game names of itmes to be swapped and vise versa
+skins_dict2 = {y:x for x,y in skins_dict.items()}
+visors_dict2 = {y:x for x,y in visors_dict.items()}
 pets_dict2 = {y:x for x,y in pets_dict.items()}
 nameplates_dict2 = {y:x for x,y in nameplates_dict.items()}
-skins_dict2 = {y:x for x,y in skins_dict.items()}
 
 
 def resource_path(relative_path): # stolen from https://stackoverflow.com/a/13790741
@@ -35,7 +36,7 @@ layout = [
 	[sg.Text('Color',key="color_display"),sg.Combo(values=color_indexes,key="color")],
 	[sg.Text('Hat:',key="hat_display"),sg.Combo(values=hats,key="hat")],
 	[sg.Text('Skin:',key="skin_display"),sg.Combo(values=tuple(skins_dict.values()),key="skin")],
-	[sg.Text('Visor:',key="visor_display"),sg.Combo(values=visors,key="visor")],
+	[sg.Text('Visor:',key="visor_display"),sg.Combo(values=tuple(visors_dict.values()),key="visor")],
 	[sg.Text('Pet:',key="pet_display"),sg.Combo(values=tuple(pets_dict.values()),key="pet")],
  	[sg.Text('Nameplate:',key="nameplate_display"),sg.Combo(values=tuple(nameplates_dict.values()),key="nameplate")],
 	[sg.HorizontalSeparator()],
@@ -58,8 +59,8 @@ def update_window(window:sg.Window,config:AUConfig):
 	window['hat'].update(value=config['lastHat'])
 	window['skin_display'].update(value=f"Skin: {skins_dict[config['lastSkin']]}") 
 	window['skin'].update(value=skins_dict[config['lastSkin']])
-	window['visor_display'].update(value=f"Visor: {config['lastVisor']}") 
-	window['visor'].update(value=config['lastVisor'])
+	window['visor_display'].update(value=f"Visor: {visors_dict[config['lastVisor']]}") 
+	window['visor'].update(value=visors_dict[config['lastVisor']])
 	window['pet_display'].update(value=f"Pet: {pets_dict[config['lastPet']]}")
 	window['pet'].update(value=pets_dict[config['lastPet']])
 	window['nameplate_display'].update(value=f"Nameplate: {nameplates_dict[config['lastNameplate']]}")
@@ -82,9 +83,8 @@ while True:
 		config['colorConfig'] = color_indexes.index(values['color'])
 		config['lastHat'] = values['hat']
 		config['lastSkin'] = skins_dict2[values['skin']]
-		config['lastVisor'] = values['visor']
+		config['lastVisor'] = visors_dict2[values['visor']]
 		config['lastPet'] = pets_dict2[values['pet']]
-		print(values['pet'])
 		config['lastNameplate'] = nameplates_dict2[values['nameplate']]
 		config.save()
 		update_window(window,config)
