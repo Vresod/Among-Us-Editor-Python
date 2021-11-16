@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import lib.PySimpleGUI as sg
 from lib.AUConfig import AUConfig
 from __version__ import __version__
 from os import environ
