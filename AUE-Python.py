@@ -45,11 +45,11 @@ layout = [
 ]
 
 # Process is given app user model id of 'a.b.c.d', differentiating itself from the Python processs
-if sys.platform.startswith('win') and sys.argv[0].endswith('.exe') == False:
+if sys.platform == 'win32' and not sys.argv[0].endswith('.exe'):
 	ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(f'AUEPython.AUEPython.AUEPython.{__version__}') # string is arbitrary
 
 # Create the Window
-window = sg.Window(f'Among Us Editor (v{__version__}) - Remake - By Vresod',layout,icon=resource_path("images/logo.ico"))
+window = sg.Window(f'Among Us Editor (v{__version__}) - Remake - By Vresod',layout,icon=resource_path("images/logo.ico"),finalize=True)
 
 def update_window(window:sg.Window,config:AUConfig):
 	window['username_display'].update(value=f"Username: {config['lastPlayerName']}") 
@@ -67,6 +67,10 @@ def update_window(window:sg.Window,config:AUConfig):
 	window['nameplate_display'].update(value=f"Nameplate: {nameplates_dict[config['lastNameplate']]}")
 	window['nameplate'].update(value=nameplates_dict[config['lastNameplate']])
 	window.finalize()
+
+if sys.platform == "win32":
+	config = AUConfig(fr"{environ['AppData']}\..\LocalLow\Innersloth\Among Us\playerPrefs")
+	update_window(window,config)
 
 # Event Loop to process "events" and get the "values" of the inputs
 while True:
