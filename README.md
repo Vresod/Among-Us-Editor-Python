@@ -3,6 +3,20 @@
 
 [Among Us Editor](https://github.com/Koupah/Among-Us-Editor) written in Python, for newer versions of the game.
 
+## Credits
+
+GUI Code by Vresod
+
+Data dumping and some GUI code by EnbyCosmog
+
+Initial ID dump by Sharedlines 
+
+PySimpleGUI by Mike / the PySimpleGUI team
+
+Thanks to the people of the [Reactor](https://reactor.gg) discord server for helping me decompile the game to get indexes. Seriously appreciated, this project would be majorly unfinished without you.
+<hr>
+Really, massive thanks to EnbyCosmog for not only dumping <i>*all*</i> of the IDs but manually transcribing all of the in-game names as well. Seriously; how could you possibly be cooler than that?
+
 ## How do I use it?
 
 Navigate to the directory and use `python AUE-Python.py` or run the `build.bat` file to build an executable.
