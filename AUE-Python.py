@@ -31,8 +31,7 @@ sg.theme('GrayGrayGray')   # Add a touch of color
 menu_def = [["Help",["About"]]]
 
 # All the stuff inside your window.
-layout = [
-	[sg.Menu(menu_def)],
+playerPrefs_tab = [
 	[sg.Text('Username:',key="username_display"),sg.Input(key="username")],
 	[sg.Text('Color',key="color_display"),sg.Combo(values=color_indexes,key="color")],
 	[sg.Text('Hat:',key="hat_display"),sg.Combo(values=tuple(hats_dict.values()),key="hat")],
@@ -40,6 +39,21 @@ layout = [
 	[sg.Text('Visor:',key="visor_display"),sg.Combo(values=tuple(visors_dict.values()),key="visor")],
 	[sg.Text('Pet:',key="pet_display"),sg.Combo(values=tuple(pets_dict.values()),key="pet")],
  	[sg.Text('Nameplate:',key="nameplate_display"),sg.Combo(values=tuple(nameplates_dict.values()),key="nameplate")],
+]
+
+gameHostOptions_tab = [
+	[sg.T("WIP")]
+]
+
+playerStats2_tab = [
+	[sg.T("WIP")]
+]
+
+layout = [
+	[sg.Menu(menu_def)],
+	[sg.TabGroup([[
+		sg.Tab('playerPrefs',playerPrefs_tab),sg.Tab('gameHostOptions',gameHostOptions_tab),sg.Tab('playerStats2',playerStats2_tab)
+	]])],
 	[sg.HorizontalSeparator()],
 	[sg.Input(key='file',visible=False,enable_events=True),sg.FileBrowse(button_text="Open",initial_folder=fr"{environ['AppData']}\..\LocalLow\Innersloth\Among Us"),sg.Submit('Save',key="save")]
 ]
