@@ -83,8 +83,8 @@ def update_window(window:sg.Window,config:AUConfig):
 	window.finalize()
 
 if sys.platform == "win32":
-	import glob
-	playerPrefsPath = glob.glob(fr"{environ['AppData']}\..\LocalLow\Innersloth\Among Us\*playerPrefs")[0] # epic games compatible
+	from glob import glob
+	playerPrefsPath = glob(fr"{environ['AppData']}\..\LocalLow\Innersloth\Among Us\*playerPrefs")[0] # epic games compatible
 	config = AUConfig(playerPrefsPath)
 	update_window(window,config)
 
