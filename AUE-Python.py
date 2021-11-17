@@ -82,9 +82,10 @@ def update_window(window:sg.Window,config:AUConfig):
 	window['nameplate'].update(value=nameplates_dict[config['lastNameplate']])
 	window.finalize()
 
-if sys.platform == "win32":
+try:
 	config = AUConfig(fr"{environ['AppData']}\..\LocalLow\Innersloth\Among Us\playerPrefs")
 	update_window(window,config)
+except Exception: pass
 
 # Event Loop to process "events" and get the "values" of the inputs
 while True:
