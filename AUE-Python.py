@@ -9,11 +9,11 @@ from os import path
 
 
 # Allows for IDs and in-game names of itmes to be swapped and vise versa
-hats_dict2 = {y:x for x,y in hats_dict.items()}
-skins_dict2 = {y:x for x,y in skins_dict.items()}
-visors_dict2 = {y:x for x,y in visors_dict.items()}
-pets_dict2 = {y:x for x,y in pets_dict.items()}
-nameplates_dict2 = {y:x for x,y in nameplates_dict.items()}
+hats_dict2 = {y:x for x,y in hats_dict.items()}; hats = list(hats_dict.values()); hats.sort()
+skins_dict2 = {y:x for x,y in skins_dict.items()}; skins = list(skins_dict.values()); skins.sort()
+visors_dict2 = {y:x for x,y in visors_dict.items()}; visors = list(visors_dict.values()); visors.sort()
+pets_dict2 = {y:x for x,y in pets_dict.items()}; pets = list(pets_dict.values()); pets.sort()
+nameplates_dict2 = {y:x for x,y in nameplates_dict.items()}; nameplates = list(nameplates_dict.values()); nameplates.sort()
 
 
 def resource_path(relative_path): # stolen from https://stackoverflow.com/a/13790741
@@ -34,11 +34,11 @@ menu_def = [["Help",["About"]]]
 playerPrefs_tab = [
 	[sg.Text('Username:',key="username_display"),sg.Input(key="username")],
 	[sg.Text('Color',key="color_display"),sg.Combo(values=color_indexes,key="color")],
-	[sg.Text('Hat:',key="hat_display"),sg.Combo(values=tuple(hats_dict.values()),key="hat")],
-	[sg.Text('Skin:',key="skin_display"),sg.Combo(values=tuple(skins_dict.values()),key="skin")],
-	[sg.Text('Visor:',key="visor_display"),sg.Combo(values=tuple(visors_dict.values()),key="visor")],
-	[sg.Text('Pet:',key="pet_display"),sg.Combo(values=tuple(pets_dict.values()),key="pet")],
- 	[sg.Text('Nameplate:',key="nameplate_display"),sg.Combo(values=tuple(nameplates_dict.values()),key="nameplate")],
+	[sg.Text('Hat:',key="hat_display"),sg.Combo(values=hats,key="hat")],
+	[sg.Text('Skin:',key="skin_display"),sg.Combo(values=skins,key="skin")],
+	[sg.Text('Visor:',key="visor_display"),sg.Combo(values=visors,key="visor")],
+	[sg.Text('Pet:',key="pet_display"),sg.Combo(values=pets,key="pet")],
+ 	[sg.Text('Nameplate:',key="nameplate_display"),sg.Combo(values=nameplates,key="nameplate")],
 ]
 
 gameHostOptions_tab = [
