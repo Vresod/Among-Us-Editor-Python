@@ -82,10 +82,11 @@ def update_window(window:sg.Window,config:AUConfig):
 	window['nameplate'].update(value=nameplates_dict[config['lastNameplate']])
 	window.finalize()
 
-try:
-	config = AUConfig(fr"{environ['AppData']}\..\LocalLow\Innersloth\Among Us\playerPrefs")
+if sys.platform == "win32":
+	from glob import glob
+	playerPrefsPath = glob(fr"{environ['AppData']}\..\LocalLow\Innersloth\Among Us\*playerPrefs")[0] # epic games compatible
+	config = AUConfig(playerPrefsPath)
 	update_window(window,config)
-except Exception: pass
 
 # Event Loop to process "events" and get the "values" of the inputs
 while True:
