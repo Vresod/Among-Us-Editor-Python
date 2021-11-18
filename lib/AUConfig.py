@@ -2,6 +2,7 @@ from collections import OrderedDict
 from os import PathLike
 from .data_indexes import prefs_indexes as _prefs_indexes
 from .data_indexes import host_indexes as _host_indexes
+from .data_indexes import stats_indexes as _stats_indexes
 import struct
 
 from decimal import Decimal, getcontext
@@ -83,4 +84,43 @@ class GameHostOptions(AUConfig):
 		if config_file is None:
 			config_file = self.config_file
 		with open(config_file,"wb") as config_filefile: # don't worry please
+			config_filefile.write(config)
+
+class PlayerStats(AUConfig): # just copied GameHostOptions, potentially unnecessary
+	def __init__(self,config_file:PathLike = None,autoinit = True):
+		self.config_file = config_file
+		self.raw_config = open(config_file,"rb")
+		self.config = OrderedDict()
+		if autoinit:
+			self.open()
+	
+	def open(self):
+		for i,index in enumerate(_stats_indexes):
+			if index.type == "byte": # one byte
+				self.config[_stats_indexes[i].name] = struct.unpack('B',self.raw_config.read(1))[0]
+			elif index.type == "uint32": # unsigned int
+				self.config[_stats_indexes[i].name] = struct.unpack('I',self.raw_config.read(4))[0]
+			elif index.type == "int32": # signed int
+				self.config[_stats_indexes[i].name] = struct.unpack('i',self.raw_config.read(4))[0]
+			elif index.type == "boolean": # bool
+				self.config[_stats_indexes[i].name] = struct.unpack('?',self.raw_config.read(1))[0]
+			elif index.type == "single": # float
+				self.config[_stats_indexes[i].name] = Decimal(struct.unpack('f',self.raw_config.read(4))[0]).normalize()
+		self.raw_config.close()
+	def save(self,config_file:str = None):
+		config = b""
+		for i,index in enumerate(_stats_indexes):
+			if index.type == "byte": # one byte
+				config += struct.pack('B',self.config[index.name])
+			elif index.type == "uint32": # unsigned int
+				config += struct.pack('I',self.config[index.name])
+			elif index.type == "int32": # signed int
+				config += struct.pack('i',self.config[index.name])
+			elif index.type == "boolean": # bool
+				config += struct.pack('?',self.config[index.name])
+			elif index.type == "single": # float
+				config += struct.pack('f',self.config[index.name])
+		if config_file is None:
+			config_file = self.config_file
+		with open(config_file,"wb") as config_filefile: # nice
 			config_filefile.write(config)

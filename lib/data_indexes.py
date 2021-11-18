@@ -1,4 +1,4 @@
-from .dataclass import host_index as _host_index
+from .dataclass import host_index as _host_index, stats_index as _stats_index
 
 
 prefs_indexes = (  # by Koupah and Vresod,
@@ -70,6 +70,28 @@ host_indexes = (
 	_host_index('VisualTasks','boolean',1),
 	_host_index('AnonymousVotes','boolean',1),
 	_host_index('TaskBarMode','byte',1),
+)
+
+stats_indexes = ( # by EnbyCosmog
+	_stats_index('version','byte',1),
+	_stats_index('BodiesReported','uint32',4),
+	_stats_index('EmergenciesCalled','uint32',4),
+	_stats_index('TasksCompleted','uint32',4),
+	_stats_index('AllTasksCompleted','uint32',4),
+	_stats_index('SabotagesFixed','uint32',4),
+	_stats_index('ImposterKills','uint32',4),
+	_stats_index('TimesMurdered','uint32',4),
+	_stats_index('TimesEjected','uint32',4),
+	_stats_index('CrewmateStreak','uint32',4),
+	_stats_index('TimesImposter','uint32',4),
+	_stats_index('TimesCrewmate','uint32',4),
+	_stats_index('GamesStarted','uint32',4),
+	_stats_index('GamesFinished','uint32',4),
+	_stats_index('CrewmateVoteWins','uint32',4),
+	_stats_index('CrewmateTaskWins','uint32',4),
+	_stats_index('ImposterVoteWins','uint32',4),
+	_stats_index('ImposterKillWins','uint32',4),
+	_stats_index('ImposterSabotageWins','uint32',4),
 )
 
 hats_dict = { # by EnbyCosmog (this took so long ;-;). special thanks to SharedLines for providing the initial version of this list
