@@ -1,4 +1,4 @@
-from .dataclasses import host_index as _host_index
+from .dataclass import host_index as _host_index
 
 
 prefs_indexes = (  # by Koupah and Vresod,
