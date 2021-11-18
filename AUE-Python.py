@@ -7,7 +7,9 @@ import sys
 import ctypes
 from os import path
 from lib.dataclass import find_files
+from decimal import Decimal, getcontext
 
+getcontext().prec = 3
 
 # Allows for IDs and in-game names of itmes to be swapped and vise versa
 hats_dict2 = {y:x for x,y in hats_dict.items()}
@@ -136,10 +138,10 @@ while True:
 		prefsConfig['lastNameplate'] = nameplates_dict2[values['nameplate']]
 		prefsConfig.save()
 		hostConfig['MaxPlayers'] = int(values['maxplayers'])
-		hostConfig['PlayerSpeedMod'] = float(values['playerspeed'])
-		hostConfig['CrewLightMod'] = float(values['crewmatevision'])
-		hostConfig['ImposterLightMod'] = float(values['impostervision'])
-		hostConfig['KillCooldown'] = float(values['killcooldown'])
+		hostConfig['PlayerSpeedMod'] = Decimal(values['playerspeed']).normalize()
+		hostConfig['CrewLightMod'] = Decimal(values['crewmatevision']).normalize()
+		hostConfig['ImposterLightMod'] = Decimal(values['impostervision']).normalize()
+		hostConfig['KillCooldown'] = Decimal(values['killcooldown']).normalize()
 		hostConfig['NumCommonTasks'] = int(values['commontasks'])
 		hostConfig['NumShortTasks'] = int(values['shorttasks'])
 		hostConfig['NumLongTasks'] = int(values['longtasks'])

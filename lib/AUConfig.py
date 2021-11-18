@@ -4,6 +4,10 @@ from .data_indexes import prefs_indexes as _prefs_indexes
 from .data_indexes import host_indexes as _host_indexes
 import struct
 
+from decimal import Decimal, getcontext
+
+getcontext().prec = 3
+
 class AUConfig():
 	"""
 	Used to store playerPrefs. Overwrite `open()` and `save()` methods and it'll work for everything else
@@ -27,7 +31,6 @@ class AUConfig():
 		"""
 		temp_config = self.raw_config.split(",")
 		for i,index in enumerate(_prefs_indexes):
-			print(i,index,temp_config)
 			self.config[index] = temp_config[i]
 	def save(self,config_file:str = None):
 		"""
@@ -62,7 +65,7 @@ class GameHostOptions(AUConfig):
 			elif index.type == "boolean": # bool
 				self.config[_host_indexes[i].name] = struct.unpack('?',self.raw_config.read(1))[0]
 			elif index.type == "single": # float
-				self.config[_host_indexes[i].name] = struct.unpack('f',self.raw_config.read(4))[0]
+				self.config[_host_indexes[i].name] = Decimal(struct.unpack('f',self.raw_config.read(4))[0]).normalize()
 		self.raw_config.close()
 	def save(self,config_file:str = None):
 		config = b""
