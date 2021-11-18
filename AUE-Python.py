@@ -55,8 +55,8 @@ gameHostOptions_tab = [
 	[sg.Text("Long tasks:",key="longtasks_display"),sg.Input(key="longtasks",size=(10,None))],
 ]
 
-playerStats2_tab = [
-	[sg.Text('Bodies reported:',key="bodiesreported_display"),sg.Input(key="bodiesreported",size=(10,None))],
+playerStats2_column = [
+    [sg.Text('Bodies reported:',key="bodiesreported_display"),sg.Input(key="bodiesreported",size=(10,None))],
 	[sg.Text('Emergencies called:',key="emergenciescalled_display"),sg.Input(key="emergenciescalled",size=(10,None))],
 	[sg.Text('Tasks completed:',key="taskscompleted_display"),sg.Input(key="taskscompleted",size=(10,None))],
 	[sg.Text('All tasks completed:',key="alltaskscompleted_display"),sg.Input(key="alltaskscompleted",size=(10,None))],
@@ -75,6 +75,8 @@ playerStats2_tab = [
 	[sg.Text('Crewmate vote wins:',key="crewmatevotewins_display"),sg.Input(key="crewmatevotewins",size=(10,None))],
 	[sg.Text('Crewmate task wins:',key="crewmatetaskwins_display"),sg.Input(key="crewmatetaskwins",size=(10,None))],
 ]
+
+playerStats2_tab = [[sg.Column(playerStats2_column,scrollable=True,size=(300,180))]]
 
 layout = [
 	[sg.Menu(menu_def)],
