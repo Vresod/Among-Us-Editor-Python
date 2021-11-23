@@ -19,6 +19,12 @@ Thanks to the people of the [Reactor](https://reactor.gg) discord server for hel
 <hr>
 Really, massive thanks to EnbyCosmog for not only dumping <i>*all*</i> of the IDs but manually transcribing all of the in-game names as well. Seriously; how could you possibly be cooler than that?
 
+## Screenshots
+
+Here is one!
+
+![Screenshot of AUE-P](https://user-images.githubusercontent.com/40863375/143146218-e6d0b3a9-4369-4808-aaa8-c0d91da0a1db.png)
+
 ## How do I use it?
 
 Navigate to the directory and use `python AUE-Python.py` or run the `build.bat` file to build an executable.
