@@ -35,48 +35,48 @@ menu_def = [["Help",["About"]]]
 
 # All the stuff inside your window.
 playerPrefs_tab = [
-	[sg.Text('Username:',key="username_display"),sg.Input(key="username",size=(12,None))],
-	[sg.Text('Color',key="color_display"),sg.Combo(values=color_indexes,key="color")],
-	[sg.Text('Hat:',key="hat_display"),sg.Combo(values=hats,key="hat")],
-	[sg.Text('Skin:',key="skin_display"),sg.Combo(values=skins,key="skin")],
-	[sg.Text('Visor:',key="visor_display"),sg.Combo(values=visors,key="visor")],
-	[sg.Text('Pet:',key="pet_display"),sg.Combo(values=pets,key="pet")],
- 	[sg.Text('Nameplate:',key="nameplate_display"),sg.Combo(values=nameplates,key="nameplate")],
+	[sg.Text('Username:',key="username_display"),sg.Push(),sg.Input(key="username",size=(20,None))],
+	[sg.Text('Color',key="color_display"),sg.Push(),sg.Combo(values=color_indexes,key="color")],
+	[sg.Text('Hat:',key="hat_display"),sg.Push(),sg.Combo(values=hats,key="hat")],
+	[sg.Text('Skin:',key="skin_display"),sg.Push(),sg.Combo(values=skins,key="skin")],
+	[sg.Text('Visor:',key="visor_display"),sg.Push(),sg.Combo(values=visors,key="visor")],
+	[sg.Text('Pet:',key="pet_display"),sg.Push(),sg.Combo(values=pets,key="pet")],
+	[sg.Text('Nameplate:',key="nameplate_display"),sg.Push(),sg.Combo(values=nameplates,key="nameplate")],
 ]
 
 gameHostOptions_tab = [
-	[sg.Text("Max players:",key="maxplayers_display"),sg.Input(key="maxplayers",size=(10,None))],
-	[sg.Text("Player speed:",key="playerspeed_display"),sg.Input(key="playerspeed",size=(10,None))],
-	[sg.Text("Crewmate vision:",key="crewmatevision_display"),sg.Input(key="crewmatevision",size=(10,None))],
-	[sg.Text("Imposter vision",key="impostervision_display"),sg.Input(key="impostervision",size=(10,None))],
-	[sg.Text("Kill cooldown:",key="killcooldown_display"),sg.Input(key="killcooldown",size=(10,None))],
-	[sg.Text("Common tasks:",key="commontasks_display"),sg.Input(key="commontasks",size=(10,None))],
-	[sg.Text("Short tasks:",key="shorttasks_display"),sg.Input(key="shorttasks",size=(10,None))],
-	[sg.Text("Long tasks:",key="longtasks_display"),sg.Input(key="longtasks",size=(10,None))],
+	[sg.Text("Max players:",key="maxplayers_display"),sg.Push(),sg.Input(key="maxplayers",size=(10,None))],
+	[sg.Text("Player speed:",key="playerspeed_display"),sg.Push(),sg.Input(key="playerspeed",size=(10,None))],
+	[sg.Text("Crewmate vision:",key="crewmatevision_display"),sg.Push(),sg.Input(key="crewmatevision",size=(10,None))],
+	[sg.Text("Imposter vision",key="impostervision_display"),sg.Push(),sg.Input(key="impostervision",size=(10,None))],
+	[sg.Text("Kill cooldown:",key="killcooldown_display"),sg.Push(),sg.Input(key="killcooldown",size=(10,None))],
+	[sg.Text("Common tasks:",key="commontasks_display"),sg.Push(),sg.Input(key="commontasks",size=(10,None))],
+	[sg.Text("Short tasks:",key="shorttasks_display"),sg.Push(),sg.Input(key="shorttasks",size=(10,None))],
+	[sg.Text("Long tasks:",key="longtasks_display"),sg.Push(),sg.Input(key="longtasks",size=(10,None))],
 ]
 
 playerStats2_column = [
-    [sg.Text('Bodies reported:',key="bodiesreported_display"),sg.Input(key="bodiesreported",size=(10,None))],
-	[sg.Text('Emergencies called:',key="emergenciescalled_display"),sg.Input(key="emergenciescalled",size=(10,None))],
-	[sg.Text('Tasks completed:',key="taskscompleted_display"),sg.Input(key="taskscompleted",size=(10,None))],
-	[sg.Text('All tasks completed:',key="alltaskscompleted_display"),sg.Input(key="alltaskscompleted",size=(10,None))],
-	[sg.Text('Sabotages fixed:',key="sabotagesfixed_display"),sg.Input(key="sabotagesfixed",size=(10,None))],
-	[sg.Text('Imposter kills:',key="imposterkills_display"),sg.Input(key="imposterkills",size=(10,None))],
-	[sg.Text('Times murdered:',key="timesmurdered_display"),sg.Input(key="timesmurdered",size=(10,None))],
-	[sg.Text('Times ejected:',key="timesejected_display"),sg.Input(key="timesejected",size=(10,None))],
-	[sg.Text('Crewmate streak:',key="crewmatestreak_display"),sg.Input(key="crewmatestreak",size=(10,None))],
-	[sg.Text('Times imposter:',key="timesimposter_display"),sg.Input(key="timesimposter",size=(10,None))],
-	[sg.Text('Times crewmate:',key="timescrewmate_display"),sg.Input(key="timescrewmate",size=(10,None))],
-	[sg.Text('Games started:',key="gamesstarted_display"),sg.Input(key="gamesstarted",size=(10,None))],
-	[sg.Text('Games finished:',key="gamesfinished_display"),sg.Input(key="gamesfinished",size=(10,None))],
-	[sg.Text('Imposter vote wins:',key="impostervotewins_display"),sg.Input(key="impostervotewins",size=(10,None))],
-	[sg.Text('Imposter kill wins:',key="imposterkillwins_display"),sg.Input(key="imposterkillwins",size=(10,None))],
-	[sg.Text('Imposter sabotage wins:',key="impostersabotagewins_display"),sg.Input(key="impostersabotagewins",size=(10,None))],
-	[sg.Text('Crewmate vote wins:',key="crewmatevotewins_display"),sg.Input(key="crewmatevotewins",size=(10,None))],
-	[sg.Text('Crewmate task wins:',key="crewmatetaskwins_display"),sg.Input(key="crewmatetaskwins",size=(10,None))],
+	[sg.Text('Bodies reported:',key="bodiesreported_display"),sg.Push(),sg.Input(key="bodiesreported",size=(10,None))],
+	[sg.Text('Emergencies called:',key="emergenciescalled_display"),sg.Push(),sg.Input(key="emergenciescalled",size=(10,None))],
+	[sg.Text('Tasks completed:',key="taskscompleted_display"),sg.Push(),sg.Input(key="taskscompleted",size=(10,None))],
+	[sg.Text('All tasks completed:',key="alltaskscompleted_display"),sg.Push(),sg.Input(key="alltaskscompleted",size=(10,None))],
+	[sg.Text('Sabotages fixed:',key="sabotagesfixed_display"),sg.Push(),sg.Input(key="sabotagesfixed",size=(10,None))],
+	[sg.Text('Imposter kills:',key="imposterkills_display"),sg.Push(),sg.Input(key="imposterkills",size=(10,None))],
+	[sg.Text('Times murdered:',key="timesmurdered_display"),sg.Push(),sg.Input(key="timesmurdered",size=(10,None))],
+	[sg.Text('Times ejected:',key="timesejected_display"),sg.Push(),sg.Input(key="timesejected",size=(10,None))],
+	[sg.Text('Crewmate streak:',key="crewmatestreak_display"),sg.Push(),sg.Input(key="crewmatestreak",size=(10,None))],
+	[sg.Text('Times imposter:',key="timesimposter_display"),sg.Push(),sg.Input(key="timesimposter",size=(10,None))],
+	[sg.Text('Times crewmate:',key="timescrewmate_display"),sg.Push(),sg.Input(key="timescrewmate",size=(10,None))],
+	[sg.Text('Games started:',key="gamesstarted_display"),sg.Push(),sg.Input(key="gamesstarted",size=(10,None))],
+	[sg.Text('Games finished:',key="gamesfinished_display"),sg.Push(),sg.Input(key="gamesfinished",size=(10,None))],
+	[sg.Text('Imposter vote wins:',key="impostervotewins_display"),sg.Push(),sg.Input(key="impostervotewins",size=(10,None))],
+	[sg.Text('Imposter kill wins:',key="imposterkillwins_display"),sg.Push(),sg.Input(key="imposterkillwins",size=(10,None))],
+	[sg.Text('Imposter sabotage wins:',key="impostersabotagewins_display"),sg.Push(),sg.Input(key="impostersabotagewins",size=(10,None))],
+	[sg.Text('Crewmate vote wins:',key="crewmatevotewins_display"),sg.Push(),sg.Input(key="crewmatevotewins",size=(10,None))],
+	[sg.Text('Crewmate task wins:',key="crewmatetaskwins_display"),sg.Push(),sg.Input(key="crewmatetaskwins",size=(10,None))],
 ]
 
-playerStats2_tab = [[sg.Column(playerStats2_column,scrollable=True,size=(300,180))]]
+playerStats2_tab = [[sg.Column(playerStats2_column,scrollable=True,expand_x=True,size=(None,200),vertical_scroll_only=True)]]
 
 layout = [
 	[sg.Menu(menu_def)],
